@@ -245,6 +245,10 @@ class DropMaterializedView(DDLElement):
             if True, the IF EXISTS clause is added. This will make the query
             successful even if the view does not exist, i.e. it lets you drop
             a non-existant view. Defaults to False.
+        cascade: bool, optional
+            if True, the CASCADE clause is added. This will drop all
+            views/objects in the DB that depend on this materialized view.
+            Defaults to False.
         """
         self.name = name
         self.if_exists = if_exists
