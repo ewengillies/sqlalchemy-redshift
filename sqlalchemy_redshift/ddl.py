@@ -263,4 +263,4 @@ def compile_drop_materialized_view(element, compiler, **kw):
     text = "DROP MATERIALIZED VIEW {if_exists}{name}{cascade}"
     if_exists = "IF EXISTS " if element.if_exists else ""
     cascade = " CASCADE" if element.cascade else ""
-    return text.format(if_exists=if_exists, name=element.name)
+    return text.format(if_exists=if_exists, name=element.name, cascade=cascade)
