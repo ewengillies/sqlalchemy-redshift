@@ -1,6 +1,20 @@
-0.7.8 (unreleased)
+0.7.10 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+0.7.9 (2020-05-29)
 ------------------
 
+- Fix for supporting SQLAlchemy 1.3.11+
+  (`Issue #195 <https://github.com/sqlalchemy-redshift/sqlalchemy-redshift/pull/195>`_)
+
+0.7.8 (2020-05-27)
+------------------
+
+- Added support for materialized views
+  (`Issue #202 <https://github.com/sqlalchemy-redshift/sqlalchemy-redshift/pull/202>`_)
 - Fix reflection of unique constraints
   (`Issue #199 <https://github.com/sqlalchemy-redshift/sqlalchemy-redshift/pull/199>`_)
 - Support for altering column comments in Alembic migrations
