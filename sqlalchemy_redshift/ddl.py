@@ -233,7 +233,7 @@ class DropMaterializedView(DDLElement):
 
     This can be included in any execute() statement.
     """
-    def __init__(self, name, if_exists=False):
+    def __init__(self, name, if_exists=False, cascade=False):
         """
         Build the DropMaterializedView DDLElement.
 
@@ -248,6 +248,7 @@ class DropMaterializedView(DDLElement):
         """
         self.name = name
         self.if_exists = if_exists
+        self.cascade = cascade
 
 
 @sa_compiler.compiles(DropMaterializedView)
@@ -255,6 +256,7 @@ def compile_drop_materialized_view(element, compiler, **kw):
     """
     Formats and returns the drop statement for materialized views.
     """
-    text = "DROP MATERIALIZED VIEW {if_exists}{name}"
+    text = "DROP MATERIALIZED VIEW {if_exists}{name}{cascade}"
     if_exists = "IF EXISTS " if element.if_exists else ""
+    cascade = " CASCADE" if element.cascade else ""
     return text.format(if_exists=if_exists, name=element.name)
